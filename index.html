@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+  <meta charset="UTF-8">
+  <title>Minha Página Pessoal</title>
+
+  <style>
+
+    /*   Transições globais */
+    * {
+      transition: 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      background: linear-gradient(135deg,#1a1a1a, #2b2b2b, #3b3b3b, #1f1f1f);
+      background-size: 300% 300%;
+      animation: gradient  8s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .cabecalho {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* FOTO COM EFEITO GLASS PREMIUM */
+    img {
+      width: 200px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    /* TODAS AS SEÇÕES COM GLASS */
+   section {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px auto;
+  width: 80%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.45);
+}
+
+    .grid-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "sobre sobre"
+    "formacao soft"
+    "objetivo idiomas";
+  gap: 20px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+
+    h2 {
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 1.5em;
+    }
+
+    ul {
+      margin-top: 10px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    /* LINKS DOS PROJETOS */
+    ul li a {
+      color: #ffffff; 
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    ul li a:hover {
+      color: #e0e0e0; 
+      text-decoration: underline;
+    }
+
+    .rodape {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    .tecnologia-lista {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1em;
+    }
+   
+    
+
+    .tecnologia-lista img {
+      width: 30px;
+      margin-right: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .tecnologia-lista img:hover {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+  .rodape img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+  transition: 0.3s ease;
+}
+ 
+/* ✨ Efeito de brilho suave no nome do cabeçalho */
+.cabecalho h2 {
+  color: #f5f5f5;
+  text-shadow: 0 0 2px #ffffff80, 0 0 4px #ffffff60, 0 0 6px #ffffff40;
+  animation: brilhoNome 3s ease-in-out infinite alternate;
+}
+
+@keyframes brilhoNome {
+  0% {
+    text-shadow: 0 0 2px #ffffff80, 0 0 4px #ffffff60, 0 0 6px #ffffff40;
+  }
+  100% {
+    text-shadow: 0 0 4px #ffffffb3, 0 0 8px #ffffff80, 0 0 12px #ffffff60;
+  }
+}
+ 
+.cabecalho, .rodape {
+  background-color: #111; /* fundo escuro para destacar o brilho */
+  color: #fff; /* texto branco */
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* brilho branco suave */
+}
+ /* 🔗 Ícones de redes no rodapé */
+.rodape a img {
+  width: 50px; /* 🔹 Diminui o tamanho do ícone */
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  opacity: 0.9;
+}
+
+.rodape a img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.4);
+  opacity: 1;
+}
+.tecnologia-lista li {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaço entre ícone, nome e descrição */
+  margin: 10px 0;
+}
+
+.tecnologia-lista strong {
+  margin-right: 6px; /* dá um pequeno espaço antes da descrição */
+}
+
+.tecnologia-lista small {
+  color: #ffffff;
+  font-size: 0.9em;
+}
+ .card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.45);
+}
+@media (max-width: 768px) {
+  .grid-info {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sobre"
+      "formacao"
+      "objetivo"
+      "soft"
+      "idiomas";
+  }
+}
+.sobre { grid-area: sobre; }
+.formacao { grid-area: formacao; }
+.objetivo { grid-area: objetivo; }
+.soft { grid-area: soft; }
+.idiomas { grid-area: idiomas; }
+
+.grid-projetos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "academicos pessoais"
+    "tecnologias tecnologias";
+  gap: 20px;
+  width: 90%;
+  margin: 10px auto;
+
+  align-items: start;   /* chave */
+  align-content: start; /* chave */
+}
+
+
+.academicos  { grid-area: academicos; }
+.pessoais    { grid-area: pessoais; }
+.tecnologias { grid-area: tecnologias; }
+
+ 
+
+
+
+
+@media (max-width: 768px) {
+  .grid-projetos {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "academicos"
+      "tecnologias"
+      "pessoais";
+  }
+}
+
+.neon {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.6),
+    0 0 8px rgba(255, 255, 255, 0.5),
+    0 0 14px rgba(255, 255, 255, 0.4);
+  animation: neonPulse 2.5s ease-in-out infinite;
+}
+
+.neon:hover {
+  text-shadow:
+    0 0 8px rgba(255,255,255,1),
+    0 0 18px rgba(255,255,255,0.9),
+    0 0 28px rgba(255,255,255,0.8);
+}
+/* Ajuste fino de espaçamento interno */
+.card h2 {
+  margin-top: 0;
+}
+
+.card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.card ul {
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+
+  .grid-projetos {
+    width: 95%;
+  }
+
+  .grid-projetos .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+}
+.grid-projetos .card {
+  align-self: stretch;
+}
+/* 🔧 REMOVE ESPAÇOS EXTRAS DENTRO DOS CARDS */
+.card {
+  padding: 14px; /* antes: 20px */
+}
+
+/* títulos */
+.card h2 {
+  margin: 0 0 8px 0;
+}
+
+.card h3 {
+  margin: 10px 0 4px 0;
+}
+
+/* listas */
+.card ul {
+  margin: 0;
+  padding-left: 18px; /* mantém alinhamento sem exagero */
+}
+
+.card li {
+  margin-bottom: 6px; /* reduz altura entre itens */
+  line-height: 1.4;
+}
+
+/* textos longos */
+.card p {
+  margin: 6px 0;
+}
+
+/* remove espaço extra causado por <br> em listas */
+.card li br {
+  display: none;
+}
+
+
+
+</style>
+</head>
+
+<body>
+  <div class="cabecalho">
+    <h1>Portfólio</h1>
+    <h2>Gabriel Borges</h2>
+    <img src="./Retrato Neon de Estilo Cyberpunk~3.png" alt="Foto de Gabriel">
+  </div>
+
+ <div class="grid-info">
+
+  <div class="card sobre">
+    <h2>Sobre Mim</h2>
+    <ul>
+      <li>
+        Graduando em Tecnologia da Informação, em início de formação com foco em <strong>Back-end</strong>, automação e fundamentos de engenharia de sistemas. Desenvolvo soluções iniciais em <strong>Python</strong> e <strong>JavaScript</strong>, voltadas à automação de tarefas, integração básica de sistemas e organização de fluxos de dados. Possuo conhecimentos em infraestrutura de redes e fundamentos de segurança da informação, buscando aplicar boas práticas de performance, escalabilidade e confiabilidade, com foco no funcionamento interno dos sistemas.
+      </li>
+    </ul>
+  </div>
+
+  <div class="card formacao">
+    <h2>Formação</h2>
+    <ul>
+  <li>
+    Graduando em Tecnologia da Informação pela Universidade Federal de Mato Grosso do Sul (UFMS), com formação voltada aos fundamentos de programação, sistemas computacionais, redes, lógica de programação e introdução à engenharia de software.
+  </li>
+</ul>
+
+  </div>
+
+  <div class="card objetivo">
+    <h2>Objetivo Profissional</h2>
+   <ul>
+  <li>
+    Busco aplicar e aprimorar meus conhecimentos em tecnologia da informação em ambientes que valorizem inovação, segurança e eficiência tecnológica, contribuindo para o desenvolvimento de soluções confiáveis, organizadas e escaláveis, ao mesmo tempo em que continuo evoluindo tecnicamente e profissionalmente.
+  </li>
+</ul>
+
+  </div>
+
+  <div class="card soft">
+    <h2>Soft Skills</h2>
+    <ul>
+      <li>Raciocínio lógico</li>
+      <li>Resolução de problemas</li>
+      <li>Trabalho em equipe</li>
+      <li>Proatividade</li>
+      <li>Aprendizado contínuo</li>
+    </ul>
+  </div>
+
+  <div class="card idiomas">
+    <h2>Idiomas</h2>
+   <ul>
+  
+  <li>
+    <strong>Inglês:</strong> Básico, com capacidade de leitura e compreensão de documentações técnicas, artigos e materiais voltados à área de tecnologia da informação.
+  </li>
+</ul>
+
+  </div>
+
+</div>
+
+
+<div class="grid-projetos">
+
+  <div class="card academicos">
+    <h2>Projetos Acadêmicos</h2>
+
+    <h3>Front-end</h3>
+    <ul>
+      <li><strong>Calculadora Digital (HTML, CSS, JS)</strong><br>
+        Aplicação web que realiza operações matemáticas básicas com interface intuitiva.
+      </li>
+      <li><strong> WebPage  (HTML, CSS)</strong><br>
+        Site simples apresentando perfil e informações profissionais.
+      </li>
+      <li><strong>To-Do List (HTML, CSS, JS)</strong><br>
+        Lista de tarefas interativa que permite adicionar, concluir e excluir itens.
+      </li>
+    </ul>
+
+    <h3>Back-end (Python)</h3>
+    <ul>
+      <li><strong>Cálculo de Consumo de Combustível</strong><br>
+        Programa que calcula a eficiência de combustível com base em distância e volume.
+      </li>
+  
+      <li><strong>Documentação de Programas</strong><br>
+        Código em Python documentado passo a passo, destacando boas práticas.
+      </li>
+      <li><strong>Manipulação de Arquivos</strong><br>
+        Programa que lê arquivos de texto e substitui vogais por símbolos.
+      </li>
+      <li><strong>Implementação de Fila</strong><br>
+        Sistema que permite enfileirar, desenfileirar e consultar elementos via menu.
+      </li>
+      <li><strong>Somatório Recursivo</strong><br>
+        Algoritmo que soma os N primeiros números naturais utilizando recursividade.
+      </li>
+      
+    </ul>
+  </div>
+
+ <div class="card pessoais">
+  <h2>Projetos Pessoais</h2>
+
+  <h3>Front-end</h3>
+  <ul>
+    <li>
+      <a href="https://gabrielborges240.github.io/calculadora-cientifica/" target="_blank" class="neon">Calculadora Científica</a><br>
+      Interface moderna que realiza cálculos básicos e avançados.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/Gerador-de-QR-Code/" target="_blank" class="neon">Gerador de QR Code</a><br>
+      Gera QR Codes a partir de textos ou URLs.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/Gerador-de-Senhas-Seguras/" target="_blank" class="neon">Gerador de Senhas Seguras</a><br>
+      Cria senhas fortes personalizadas.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/App-Notes/" target="_blank" class="neon">Notes App</a><br>
+      Aplicativo para anotações rápidas e organizadas.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/Relogio-Digital-em-Tempo-Real/" target="_blank" class="neon">Relógio Digital</a><br>
+      Exibe a hora em tempo real com animação suave.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/Snake-Game/" target="_blank" class="neon">Snake Game</a><br>
+      Versão web interativa do clássico jogo da cobrinha.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/To-Do-List/" target="_blank" class="neon">To-Do List</a><br>
+      Lista interativa de tarefas com adição e conclusão de itens.
+    </li>
+    <li>
+      <a href="https://gabrielborges240.github.io/Tela-de-Login/" target="_blank" class="neon">Tela de Login</a><br>
+      Interface elegante de autenticação para sistemas web.
+    </li>
+  </ul>
+
+  <h3>APIs</h3>
+  <ul>
+    <li>
+      <a href="https://gabrielborges240.github.io/Open-Weather/" target="_blank" class="neon">Open Weather</a><br>
+      Mostra o clima atual consumindo dados da API OpenWeather.
+    </li>
+     
+  </ul>
+</div>
+
+
+  <div class="card tecnologias">
+    <h2>Tecnologias e Ferramentas</h2>
+    <ul class="tecnologia-lista">
+      <li><img src="./html (1).png"><strong>HTML</strong> Estrutura e marcação de páginas web.</li>
+      <li><img src="./css-3.png"><strong>CSS</strong> Estilização, design responsivo e animações.</li>
+      <li><img src="./java-script.png"><strong>JavaScript</strong> Interatividade no front-end.</li>
+      <li><img src="./python.png"><strong>Python</strong> Automação, back-end e análise de dados.</li>
+      <li><img src="./github 1.png"><strong>GitHub</strong> Controle de versão e portfólio de projetos.</li>
+      <li><img src="./baixados.png"><strong>VS Code</strong> Ambiente de desenvolvimento integrado.</li>
+    </ul>
+  </div>
+
+</div>
+
+
+
+ 
+
+
+  <div class="rodape">
+  <p>© Gabriel Borges. Todos os direitos reservados. • 2025</p>
+  <p>Projetos desenvolvidos com foco em lógica de programação, interatividade e design responsivo.</p>
+  
+<p style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+  <a href="mailto:gabriel.borges.dev.ti@gmail.com" target="_blank" aria-label="E-mail">
+    <img src="./gmail (3).png" alt="Gmail">
+  </a>
+
+  <a href="https://github.com/gabrielborges240" target="_blank" aria-label="GitHub">
+    <img src="./github (1).png" alt="GitHub">
+  </a>
+
+  <a href="https://www.linkedin.com/in/gabriel-borges-00aa98345" target="_blank" aria-label="LinkedIn">
+    <img src="./linkedin (2).png" alt="LinkedIn">
+  </a>
+</p>
+
+ 
+
+</div>
+</body>
+</html>
